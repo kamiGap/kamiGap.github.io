@@ -177,7 +177,7 @@ body {
       line-height: 40px; }
       .project-card > .ctnWrap > .title:hover {
         opacity: 1;
-        color: #f0534e; }
+        color: #d3d3d3; }
     .project-card > .ctnWrap > .desc {
       font-size: 16px;
       line-height: 30px;
