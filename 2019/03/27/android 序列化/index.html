@@ -5,17 +5,17 @@
   
   <title>android 序列化 | Strunk cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="android 序列化 静态成员变量不会被序列化  Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂   Serializablejava自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化">
+  <meta name="description" content="静态成员变量不会被序列化 Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂 Serializablejava自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化 过程的变量 反序列化 时系统会">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android 序列化">
 <meta property="og:url" content="http://yoursite.com/2019/03/27/android 序列化/index.html">
 <meta property="og:site_name" content="Strunk cute">
-<meta property="og:description" content="android 序列化 静态成员变量不会被序列化  Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂   Serializablejava自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化">
+<meta property="og:description" content="静态成员变量不会被序列化 Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂 Serializablejava自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化 过程的变量 反序列化 时系统会">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-27T08:47:40.438Z">
+<meta property="og:updated_time" content="2019-03-27T08:50:54.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android 序列化">
-<meta name="twitter:description" content="android 序列化 静态成员变量不会被序列化  Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂   Serializablejava自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化">
+<meta name="twitter:description" content="静态成员变量不会被序列化 Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂 Serializablejava自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化 过程的变量 反序列化 时系统会">
   
   <link rel="stylesheet" href="/css/index.css">
 </head>
@@ -58,13 +58,9 @@
   <h2 class="title">android 序列化</h2>
   <p class="sub">Mar 27, 2019</p>
   <article class="content">
-    <h1 id="android-序列化"><a href="#android-序列化" class="headerlink" title="android 序列化"></a>android 序列化</h1><ul>
-<li><p>静态成员变量不会被序列化</p>
-</li>
-<li><p>Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作</p>
+    <p>静态成员变量不会被序列化</p>
+<p>Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作</p>
 <p>Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂</p>
-</li>
-</ul>
 <h3 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h3><p>java自带的序列化方式</p>
 <p>实现 Serialzable 的接口即可 <strong>序列化</strong> 与 <strong>反序列化</strong></p>
 <p><strong>serialVersionUID</strong> 是一个辅助 <strong>序列化</strong> 和 <strong>反序列化</strong> 过程的变量</p>
