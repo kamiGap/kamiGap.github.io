@@ -60,7 +60,7 @@
 <p>实现 Serialzable 的接口即可 <strong>序列化</strong> 与 <strong>反序列化</strong></p>
 <p><strong>serialVersionUID</strong> 是一个辅助 <strong>序列化</strong> 和 <strong>反序列化</strong> 过程的变量</p>
 <p><strong>反序列化</strong> 时系统会检测文件中的 <strong>serialVersionUID</strong> 是否和当前类的一致</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以手动指定一个 serialVersionUID</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以手动指定一个 serialVersionUID</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span></span><br></pre></td></tr></table></figure>
 <p><strong>serialVersionUID</strong> 如果不指定 系统会根据类的结构生成一个 <strong>hash值</strong> 这样在类结构发生改变的时候就可能 <strong>反序列化</strong> 失败</p>
 <p>用 <strong>transient</strong> 关键字标记的变量不参与 <strong>序列化</strong></p>
 <h3>Parcelable</h3>
