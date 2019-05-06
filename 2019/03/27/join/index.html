@@ -58,25 +58,22 @@
 <p>如果 <strong>A线程</strong> 无法获得 <strong>B线程</strong> 的对象锁则无法执行join方法</p>
 <p><strong>A线程</strong> 被唤醒有两种情况</p>
 <ul>
-<li>
-<p>到了已设置的超时时间</p>
+<li><p>到了已设置的超时时间</p>
 </li>
-<li>
-<p><strong>B线程</strong> 运行结束唤醒 <strong>A线程</strong></p>
+<li><p><strong>B线程</strong> 运行结束唤醒 <strong>A线程</strong></p>
 </li>
 </ul>
-<h3>问题记录</h3>
-<p><strong>B线程</strong> 结束为什么会唤醒 <strong>A线程</strong></p>
+<h3 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h3><p><strong>B线程</strong> 结束为什么会唤醒 <strong>A线程</strong></p>
 <p>【未考证】</p>
-<p><strong>thread.cpp</strong> 的 exit 方法中调用了 notifyAll</p>
+<p><strong>thread.cpp</strong> 的 exit 方法中调用了 notifyAll </p>
 
   </article>
   <footer class="f-cf">
     
-      <a href="/2019/03/27/LockSupport/" class="link f-fl">⟵LockSupport</a>
+      <a href="/2019/03/27/Intent-filter 匹配规则/" class="link f-fl">⟵Intent-filter 匹配规则</a>
     
     
-      <a href="/2019/03/27/位图/" class="link f-fr">位图⟶</a>
+      <a href="/2019/03/27/android 序列化/" class="link f-fr">android 序列化⟶</a>
     
   </footer>
 </section></div>

@@ -5,17 +5,17 @@
   
   <title>Intent-filter 匹配规则 | Strunk cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Intent-filter 是 activity 在隐式调用的时候使用的一种过滤规则 action、category、data 均命中即可启动 activity action ​	是一个 字符串 ​	可以有 多个 ​	只要 一个 匹配即可 category ​	是一个 字符串 ​	可以有 多个 ​	如果存在 则需要 全部 匹配才算匹配成功 ​	默认会存在一个 android.intent。cate">
+  <meta name="description" content="Intent-filter 是 activity 在隐式调用的时候使用的一种过滤规则 action、category、data 均命中即可启动 activity action​    是一个 字符串 ​    可以有 多个 ​    只要 一个 匹配即可 category​    是一个 字符串 ​    可以有 多个 ​    如果存在 则需要 全部 匹配才算匹配成功 ​    默认会存在一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intent-filter 匹配规则">
 <meta property="og:url" content="http://yoursite.com/2019/03/27/Intent-filter 匹配规则/index.html">
 <meta property="og:site_name" content="Strunk cute">
-<meta property="og:description" content="Intent-filter 是 activity 在隐式调用的时候使用的一种过滤规则 action、category、data 均命中即可启动 activity action ​	是一个 字符串 ​	可以有 多个 ​	只要 一个 匹配即可 category ​	是一个 字符串 ​	可以有 多个 ​	如果存在 则需要 全部 匹配才算匹配成功 ​	默认会存在一个 android.intent。cate">
+<meta property="og:description" content="Intent-filter 是 activity 在隐式调用的时候使用的一种过滤规则 action、category、data 均命中即可启动 activity action​    是一个 字符串 ​    可以有 多个 ​    只要 一个 匹配即可 category​    是一个 字符串 ​    可以有 多个 ​    如果存在 则需要 全部 匹配才算匹配成功 ​    默认会存在一个">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-03-27T10:14:46.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intent-filter 匹配规则">
-<meta name="twitter:description" content="Intent-filter 是 activity 在隐式调用的时候使用的一种过滤规则 action、category、data 均命中即可启动 activity action ​	是一个 字符串 ​	可以有 多个 ​	只要 一个 匹配即可 category ​	是一个 字符串 ​	可以有 多个 ​	如果存在 则需要 全部 匹配才算匹配成功 ​	默认会存在一个 android.intent。cate">
+<meta name="twitter:description" content="Intent-filter 是 activity 在隐式调用的时候使用的一种过滤规则 action、category、data 均命中即可启动 activity action​    是一个 字符串 ​    可以有 多个 ​    只要 一个 匹配即可 category​    是一个 字符串 ​    可以有 多个 ​    如果存在 则需要 全部 匹配才算匹配成功 ​    默认会存在一个">
   
   <link rel="stylesheet" href="/css/index.css">
 </head>
@@ -54,36 +54,33 @@
   <article class="content">
     <p>Intent-filter 是 activity 在隐式调用的时候使用的一种过滤规则</p>
 <p><strong>action</strong>、<strong>category</strong>、<strong>data</strong> 均命中即可启动 activity</p>
-<h3>action</h3>
-<p>​	是一个 <strong>字符串</strong></p>
-<p>​	可以有 <strong>多个</strong></p>
-<p>​	只要 <strong>一个</strong> 匹配即可</p>
-<h3>category</h3>
-<p>​	是一个 <strong>字符串</strong></p>
-<p>​	可以有 <strong>多个</strong></p>
-<p>​	如果存在 则需要 <strong>全部</strong> 匹配才算匹配成功</p>
-<p>​	默认会存在一个 <code>android.intent。category.DEFAULT</code></p>
-<h3>data</h3>
-<p>​	分为两个部分</p>
-<p>​	可以有 <strong>多个</strong></p>
-<p>​	只要 <strong>一个</strong> 匹配即可</p>
-<h5>URI</h5>
-<p>​	<code>&lt;scheme&gt;://&lt;host&gt;:&lt;port&gt;/[&lt;path&gt;|&lt;pathPrefix&gt;|&lt;pathPattern&gt;]</code></p>
-<p>​	满足 scheme 协议的规则</p>
-<p>​	URI的默认值为 content 和 file</p>
-<h5>MimeType</h5>
-<p>​	媒体类型</p>
-<p>​	<strong>例</strong> 图片<code>image/*</code></p>
-<p>​	     png <code>image/png</code></p>
-<p>​	     视频<code>video/*</code></p>
-<p>​	     mp4 <code>video/mp4</code></p>
-<p>​	     任意媒体格式 <code>*/*</code></p>
+<h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>​    是一个 <strong>字符串</strong></p>
+<p>​    可以有 <strong>多个</strong></p>
+<p>​    只要 <strong>一个</strong> 匹配即可</p>
+<h3 id="category"><a href="#category" class="headerlink" title="category"></a>category</h3><p>​    是一个 <strong>字符串</strong></p>
+<p>​    可以有 <strong>多个</strong></p>
+<p>​    如果存在 则需要 <strong>全部</strong> 匹配才算匹配成功</p>
+<p>​    默认会存在一个 <code>android.intent。category.DEFAULT</code> </p>
+<h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><p>​    分为两个部分</p>
+<p>​    可以有 <strong>多个</strong></p>
+<p>​    只要 <strong>一个</strong> 匹配即可</p>
+<h5 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h5><p>​    <code>&lt;scheme&gt;://&lt;host&gt;:&lt;port&gt;/[&lt;path&gt;|&lt;pathPrefix&gt;|&lt;pathPattern&gt;]</code></p>
+<p>​    满足 scheme 协议的规则</p>
+<p>​    URI的默认值为 content 和 file</p>
+<h5 id="MimeType"><a href="#MimeType" class="headerlink" title="MimeType"></a>MimeType</h5><p>​    媒体类型</p>
+<p>​    <strong>例</strong> 图片<code>image/*</code></p>
+<p>​         png <code>image/png</code></p>
+<p>​         视频<code>video/*</code></p>
+<p>​         mp4 <code>video/mp4</code></p>
+<p>​         任意媒体格式 <code>*/*</code></p>
 
   </article>
   <footer class="f-cf">
     
+      <a href="/2019/03/27/LockSupport/" class="link f-fl">⟵LockSupport</a>
     
-      <a href="/2019/03/27/android 序列化/" class="link f-fr">android 序列化⟶</a>
+    
+      <a href="/2019/03/27/join/" class="link f-fr">join⟶</a>
     
   </footer>
 </section></div>
