@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>线程状态 | Strunk cute</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="线程是cpu进行调度的最小单位 线程数量大于cpu数量时，线程无法同一时间都被执行，线程状态用于解决那些线程应该被执行的问题 状态New1Thread state for a thread which has not yet started. Runnable1Thread state for a runnable thread.  A thread in the runnable state i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线程状态">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/线程状态/index.html">
+<meta property="og:site_name" content="Strunk cute">
+<meta property="og:description" content="线程是cpu进行调度的最小单位 线程数量大于cpu数量时，线程无法同一时间都被执行，线程状态用于解决那些线程应该被执行的问题 状态New1Thread state for a thread which has not yet started. Runnable1Thread state for a runnable thread.  A thread in the runnable state i">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/线程状态/线程状态.png">
+<meta property="og:updated_time" content="2019-05-06T05:48:31.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="线程状态">
+<meta name="twitter:description" content="线程是cpu进行调度的最小单位 线程数量大于cpu数量时，线程无法同一时间都被执行，线程状态用于解决那些线程应该被执行的问题 状态New1Thread state for a thread which has not yet started. Runnable1Thread state for a runnable thread.  A thread in the runnable state i">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/27/线程状态/线程状态.png">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">Strunk Cote</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/categories" class="nav-menu ">CATEGORY</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">线程状态</h2>
+  <p class="sub">Mar 27, 2019</p>
+  <article class="content">
+    <p>线程是cpu进行调度的最小单位</p>
+<p>线程数量大于cpu数量时，线程无法同一时间都被执行，线程状态用于解决那些线程应该被执行的问题</p>
+<h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><h5 id="New"><a href="#New" class="headerlink" title="New"></a>New</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread state for a thread which has not yet started.</span><br></pre></td></tr></table></figure>
+<h5 id="Runnable"><a href="#Runnable" class="headerlink" title="Runnable"></a>Runnable</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread state for a runnable thread.  A thread in the runnable state is executing in the Java virtual machine but it maybe waiting for other resources from the operating system such as processor.</span><br></pre></td></tr></table></figure>
+<h5 id="Blocked"><a href="#Blocked" class="headerlink" title="Blocked"></a>Blocked</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Thread state for a thread blocked waiting for a monitor lock.</span><br><span class="line">A thread in the blocked state is waiting for a monitor lock to enter a synchronized block/method or reenter a synchronized block/method after calling Object.wait().</span><br></pre></td></tr></table></figure>
+<h5 id="Waiting"><a href="#Waiting" class="headerlink" title="Waiting"></a>Waiting</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Thread state for a waiting thread.</span><br><span class="line">A thread is in the waiting state due to calling one of the following methods:</span><br><span class="line">	Object.wait() with no timeout</span><br><span class="line">    Thread.join with no timeout</span><br><span class="line">    LockSupport.park()</span><br><span class="line">A thread in the waiting state is waiting for another thread to perform a particular action.</span><br><span class="line">For example, a thread that has called Object.wait() on an object is waiting for another thread to call Object.notify() or Object.notifyAll() on that object. A thread that has called Thread.join() is waiting for a specified thread to terminate.</span><br></pre></td></tr></table></figure>
+<h5 id="Timed-waiting"><a href="#Timed-waiting" class="headerlink" title="Timed_waiting"></a>Timed_waiting</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Thread state for a waiting thread with a specified waiting time.</span><br><span class="line">A thread is in the timed waiting state due to calling one of the following methods with a specified positive waiting time:</span><br><span class="line">	Thread.sleep</span><br><span class="line">    Object.wait with timeout</span><br><span class="line">    Thread.join with timeout</span><br><span class="line">    LockSupport.parkNanos</span><br><span class="line">    LockSupport.parkUntil</span><br></pre></td></tr></table></figure>
+<h5 id="Terminated"><a href="#Terminated" class="headerlink" title="Terminated"></a>Terminated</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Thread state for a terminated thread.</span><br><span class="line">The thread has completed execution.</span><br></pre></td></tr></table></figure>
+<p>状态转换</p>
+<p><img src="/2019/03/27/线程状态/线程状态.png" alt="线程状态"></p>
+<ol>
+<li><p>阻塞 </p>
+<ul>
+<li><strong>进入</strong> 线程进入同步方法或同步代码块时未获取到锁</li>
+<li><strong>退出</strong> 线程获取到锁</li>
+</ul>
+</li>
+<li><p>等待</p>
+<ul>
+<li><strong>进入</strong> 线程执行了以下三种方法其中之一<ul>
+<li>Object.wait()</li>
+<li>Tread.join()</li>
+<li>LockSupport.park()</li>
+</ul>
+</li>
+<li><strong>退出</strong> <ul>
+<li>直到锁对象被调用 Object.notify() 或者 Object.notifyAll() 并且线程竞争到 cpu 执行权</li>
+<li>被调用join()的线程执行结束之后</li>
+<li>三种情况<ul>
+<li>调用LockSupport.unpark()</li>
+<li>其他线程调用 Thread.interrupt() 中断本线程</li>
+<li>park方法的虚假返回（that is， for no reason）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>超时等待</p>
+<ul>
+<li><strong>进入</strong> 线程执行了以下五种方法其中之一<ul>
+<li>Tread.sleep(long)</li>
+<li>Object.wait(long)</li>
+<li>Tread.join(long)</li>
+<li>LockSupport.parkNanos(long)</li>
+<li>LockSupport.parkUntil(long)</li>
+</ul>
+</li>
+<li><strong>退出</strong> 过了设定的时间后退出</li>
+</ul>
+</li>
+</ol>
+
+  </article>
+  <footer class="f-cf">
+    
+      <a href="/2019/03/27/最短路径/" class="link f-fl">⟵最短路径</a>
+    
+    
+      <a href="/2019/03/27/join/" class="link f-fr">join⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  kami.s.gap@gmail.com
+  
+  <span class="copyright">All rights reserved @kami</span>
+</footer>
+  </div>
+</body>
+</html>
