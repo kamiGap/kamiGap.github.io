@@ -5,17 +5,17 @@
   
   <title>布隆过滤器 | Strunk cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在有一些场景我们会使用 boolean 或者 位图 的方式记录数据 可以通过 哈希运算 的方式让大范围的数据都落到更小的范围里 例一 需要储存 1-16 的数值 ​    可以通过 哈希算法[数值%8] 让 1-16 的数值落在 1-8 的范围内 例一 带来了 哈希碰撞 的问题 在储存中无法区分是储存了 4 还是 12 例二 通过降低 哈希碰撞 的概率来降低出现这种情况的可能性 ​    需要储存">
+  <meta name="description" content="在有一些场景我们会使用 boolean 或者 位图 的方式记录数据 可以通过 哈希运算 的方式让大范围的数据都落到更小的范围里 例一 需要储存 1-16 的数值 ​	可以通过 哈希算法[数值%8] 让 1-16 的数值落在 1-8 的范围内 例一 带来了 哈希碰撞 的问题 在储存中无法区分是储存了 4 还是 12 **例二 **通过降低 哈希碰撞 的概率来降低出现这种情况的可能性 ​	需要储存 1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="布隆过滤器">
 <meta property="og:url" content="http://yoursite.com/2019/03/27/布隆过滤器/index.html">
 <meta property="og:site_name" content="Strunk cute">
-<meta property="og:description" content="在有一些场景我们会使用 boolean 或者 位图 的方式记录数据 可以通过 哈希运算 的方式让大范围的数据都落到更小的范围里 例一 需要储存 1-16 的数值 ​    可以通过 哈希算法[数值%8] 让 1-16 的数值落在 1-8 的范围内 例一 带来了 哈希碰撞 的问题 在储存中无法区分是储存了 4 还是 12 例二 通过降低 哈希碰撞 的概率来降低出现这种情况的可能性 ​    需要储存">
+<meta property="og:description" content="在有一些场景我们会使用 boolean 或者 位图 的方式记录数据 可以通过 哈希运算 的方式让大范围的数据都落到更小的范围里 例一 需要储存 1-16 的数值 ​	可以通过 哈希算法[数值%8] 让 1-16 的数值落在 1-8 的范围内 例一 带来了 哈希碰撞 的问题 在储存中无法区分是储存了 4 还是 12 **例二 **通过降低 哈希碰撞 的概率来降低出现这种情况的可能性 ​	需要储存 1">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-03-27T10:14:54.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布隆过滤器">
-<meta name="twitter:description" content="在有一些场景我们会使用 boolean 或者 位图 的方式记录数据 可以通过 哈希运算 的方式让大范围的数据都落到更小的范围里 例一 需要储存 1-16 的数值 ​    可以通过 哈希算法[数值%8] 让 1-16 的数值落在 1-8 的范围内 例一 带来了 哈希碰撞 的问题 在储存中无法区分是储存了 4 还是 12 例二 通过降低 哈希碰撞 的概率来降低出现这种情况的可能性 ​    需要储存">
+<meta name="twitter:description" content="在有一些场景我们会使用 boolean 或者 位图 的方式记录数据 可以通过 哈希运算 的方式让大范围的数据都落到更小的范围里 例一 需要储存 1-16 的数值 ​	可以通过 哈希算法[数值%8] 让 1-16 的数值落在 1-8 的范围内 例一 带来了 哈希碰撞 的问题 在储存中无法区分是储存了 4 还是 12 **例二 **通过降低 哈希碰撞 的概率来降低出现这种情况的可能性 ​	需要储存 1">
   
   <link rel="stylesheet" href="/css/index.css">
 </head>
@@ -55,14 +55,14 @@
     <p>在有一些场景我们会使用 <strong>boolean</strong> 或者 <strong>位图</strong> 的方式记录数据</p>
 <p>可以通过 <strong>哈希运算</strong> 的方式让大范围的数据都落到更小的范围里</p>
 <p><strong>例一</strong> 需要储存 1-16 的数值</p>
-<p>​    可以通过 <strong>哈希算法</strong>[数值%8] 让 1-16 的数值落在 1-8 的范围内</p>
+<p>​	可以通过 <strong>哈希算法</strong>[数值%8] 让 1-16 的数值落在 1-8 的范围内</p>
 <p><strong>例一</strong> 带来了 <strong>哈希碰撞</strong> 的问题</p>
 <p>在储存中无法区分是储存了 4 还是 12</p>
-<p><strong>例二 </strong>通过降低 <strong>哈希碰撞</strong> 的概率来降低出现这种情况的可能性</p>
-<p>​    需要储存 1-16 的数值</p>
-<p>​    可以通过 <strong>哈希算法一</strong> [数值%8] 再通过 <strong>哈希算法二</strong>[数值/2] </p>
-<p>​    判断是否存在 4 时需要判断 <strong>哈希算法一</strong> 的结果 4 和 <strong>哈希算法二</strong> 的结果 2 是否同时存在</p>
-<p>​    判断是否存在 12 时需要判断 <strong>哈希算法一</strong> 的结果 4 和 <strong>哈希算法二</strong> 的结果 6 是否同时存在</p>
+<p>**例二 **通过降低 <strong>哈希碰撞</strong> 的概率来降低出现这种情况的可能性</p>
+<p>​	需要储存 1-16 的数值</p>
+<p>​	可以通过 <strong>哈希算法一</strong> [数值%8] 再通过 <strong>哈希算法二</strong>[数值/2]</p>
+<p>​	判断是否存在 4 时需要判断 <strong>哈希算法一</strong> 的结果 4 和 <strong>哈希算法二</strong> 的结果 2 是否同时存在</p>
+<p>​	判断是否存在 12 时需要判断 <strong>哈希算法一</strong> 的结果 4 和 <strong>哈希算法二</strong> 的结果 6 是否同时存在</p>
 <p><strong>例二</strong> 便使用了 <strong>布隆过滤器</strong> 的思想</p>
 <p>可以增加更多的 <strong>哈希算法</strong> 来规避 <strong>哈希碰撞</strong> 但是仍然有误判的可能</p>
 <p>但它只会对存在的情况有误判 判断出不存在的数字是真的不存在</p>

@@ -5,17 +5,17 @@
   
   <title>android 序列化 | Strunk cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="静态成员变量不会被序列化 Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂 Serializablejava自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化 过程的变量 反序列化 时系统会">
+  <meta name="description" content="静态成员变量不会被序列化 Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂 Serializable java自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化 过程的变量 反序列化 时系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android 序列化">
 <meta property="og:url" content="http://yoursite.com/2019/03/27/android 序列化/index.html">
 <meta property="og:site_name" content="Strunk cute">
-<meta property="og:description" content="静态成员变量不会被序列化 Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂 Serializablejava自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化 过程的变量 反序列化 时系统会">
+<meta property="og:description" content="静态成员变量不会被序列化 Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂 Serializable java自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化 过程的变量 反序列化 时系统">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-03-27T10:14:35.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android 序列化">
-<meta name="twitter:description" content="静态成员变量不会被序列化 Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂 Serializablejava自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化 过程的变量 反序列化 时系统会">
+<meta name="twitter:description" content="静态成员变量不会被序列化 Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作 Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂 Serializable java自带的序列化方式 实现 Serialzable 的接口即可 序列化 与 反序列化 serialVersionUID 是一个辅助 序列化 和 反序列化 过程的变量 反序列化 时系统">
   
   <link rel="stylesheet" href="/css/index.css">
 </head>
@@ -55,26 +55,31 @@
     <p>静态成员变量不会被序列化</p>
 <p>Serializable 将序列化对象写入文件 因此会调用较多的i/o流操作</p>
 <p>Parcelable 将序列化对象写在共享内存 操作更快 当需要写入文件时更为复杂</p>
-<h3 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h3><p>java自带的序列化方式</p>
+<h3>Serializable</h3>
+<p>java自带的序列化方式</p>
 <p>实现 Serialzable 的接口即可 <strong>序列化</strong> 与 <strong>反序列化</strong></p>
 <p><strong>serialVersionUID</strong> 是一个辅助 <strong>序列化</strong> 和 <strong>反序列化</strong> 过程的变量</p>
-<p><strong>反序列化</strong> 时系统会检测文件中的 <strong>serialVersionUID</strong> 是否和当前类的一致    </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以手动指定一个 serialVersionUID</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span></span><br></pre></td></tr></table></figure>
+<p><strong>反序列化</strong> 时系统会检测文件中的 <strong>serialVersionUID</strong> 是否和当前类的一致</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以手动指定一个 serialVersionUID</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>serialVersionUID</strong> 如果不指定 系统会根据类的结构生成一个 <strong>hash值</strong> 这样在类结构发生改变的时候就可能 <strong>反序列化</strong> 失败</p>
 <p>用 <strong>transient</strong> 关键字标记的变量不参与 <strong>序列化</strong></p>
-<h3 id="Parcelable"><a href="#Parcelable" class="headerlink" title="Parcelable"></a>Parcelable</h3><p>android特有的序列化方式</p>
+<h3>Parcelable</h3>
+<p>android特有的序列化方式</p>
 <p>是一个 <strong>接口</strong></p>
 <p>实现接口分为三个部分</p>
 <ul>
-<li><p>描述</p>
+<li>
+<p>描述</p>
 <p>需要重写 <strong>describeContents</strong> 方法 一般都是返回 <strong>0</strong></p>
 <p>当对象中存在文件描述符时 返回 <strong>CONTENTS_FILE_DESCRIPTOR</strong> 这个值为 <strong>1</strong></p>
 </li>
-<li><p>序列化</p>
+<li>
+<p>序列化</p>
 <p>需要重写 <code>writeToParcel(Parcel dest, int flags)</code> 方法</p>
 <p>通过 <code>dest</code> 将需要序列化的数据储存</p>
 </li>
-<li><p>反序列化</p>
+<li>
+<p>反序列化</p>
 <p>需要定义一个名为 <strong>CREATOR</strong> 的变量</p>
 <p>在其 <code>createFromParcel(Parcel source)</code> 方法</p>
 <p>通过 <code>source</code> 读取序列化数据生成对象</p>

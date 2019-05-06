@@ -5,17 +5,17 @@
   
   <title>最短路径 | Strunk cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Bellmen-ford 单源    获得从 一个 指定点 到 其余各点 的最短路路径   算法思想维护一个 距离数组 dis 用于记录 指定点 到 其余各点 的最短距离 用广度遍历的方式从 指定点 开始依次访问 其余各点 到达一个点之后将 距离数组 的数值更新  松弛操作 ​    从点 j 经过边 b 到达一个点 i 后 将 dis[i] 和 dis[j] + b 的较小值更新到 dis[i]">
+  <meta name="description" content="Bellmen-ford   单源 获得从 一个 指定点 到 其余各点 的最短路路径   算法思想 维护一个 距离数组 dis 用于记录 指定点 到 其余各点 的最短距离 用广度遍历的方式从 指定点 开始依次访问 其余各点 到达一个点之后将 距离数组 的数值更新  松弛操作 ​	从点 j 经过边 b 到达一个点 i 后 将 dis[i] 和 dis[j] + b 的较小值更新到 dis[i]  遍">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最短路径">
 <meta property="og:url" content="http://yoursite.com/2019/03/27/最短路径/index.html">
 <meta property="og:site_name" content="Strunk cute">
-<meta property="og:description" content="Bellmen-ford 单源    获得从 一个 指定点 到 其余各点 的最短路路径   算法思想维护一个 距离数组 dis 用于记录 指定点 到 其余各点 的最短距离 用广度遍历的方式从 指定点 开始依次访问 其余各点 到达一个点之后将 距离数组 的数值更新  松弛操作 ​    从点 j 经过边 b 到达一个点 i 后 将 dis[i] 和 dis[j] + b 的较小值更新到 dis[i]">
+<meta property="og:description" content="Bellmen-ford   单源 获得从 一个 指定点 到 其余各点 的最短路路径   算法思想 维护一个 距离数组 dis 用于记录 指定点 到 其余各点 的最短距离 用广度遍历的方式从 指定点 开始依次访问 其余各点 到达一个点之后将 距离数组 的数值更新  松弛操作 ​	从点 j 经过边 b 到达一个点 i 后 将 dis[i] 和 dis[j] + b 的较小值更新到 dis[i]  遍">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-03-27T10:15:10.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最短路径">
-<meta name="twitter:description" content="Bellmen-ford 单源    获得从 一个 指定点 到 其余各点 的最短路路径   算法思想维护一个 距离数组 dis 用于记录 指定点 到 其余各点 的最短距离 用广度遍历的方式从 指定点 开始依次访问 其余各点 到达一个点之后将 距离数组 的数值更新  松弛操作 ​    从点 j 经过边 b 到达一个点 i 后 将 dis[i] 和 dis[j] + b 的较小值更新到 dis[i]">
+<meta name="twitter:description" content="Bellmen-ford   单源 获得从 一个 指定点 到 其余各点 的最短路路径   算法思想 维护一个 距离数组 dis 用于记录 指定点 到 其余各点 的最短距离 用广度遍历的方式从 指定点 开始依次访问 其余各点 到达一个点之后将 距离数组 的数值更新  松弛操作 ​	从点 j 经过边 b 到达一个点 i 后 将 dis[i] 和 dis[j] + b 的较小值更新到 dis[i]  遍">
   
   <link rel="stylesheet" href="/css/index.css">
 </head>
@@ -52,44 +52,56 @@
   <h2 class="title">最短路径</h2>
   <p class="sub">Mar 27, 2019</p>
   <article class="content">
-    <h3 id="Bellmen-ford"><a href="#Bellmen-ford" class="headerlink" title="Bellmen-ford"></a>Bellmen-ford</h3><ul>
-<li><p>单源 </p>
-<p>  获得从 <strong>一个</strong> <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短路路径</p>
+    <h3>Bellmen-ford</h3>
+<ul>
+<li>
+<p>单源</p>
+<p>获得从 <strong>一个</strong> <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短路路径</p>
 </li>
 </ul>
-<h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><p>维护一个 <em>距离数组 <strong>dis</strong></em> 用于记录 <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短距离</p>
+<h4>算法思想</h4>
+<p>维护一个 <em>距离数组 <strong>dis</strong></em> 用于记录 <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短距离</p>
 <p>用广度遍历的方式从 <strong>指定点</strong> 开始依次访问 <strong>其余各点</strong> 到达一个点之后将 <em>距离数组</em> 的数值更新</p>
 <blockquote>
 <p>松弛操作</p>
-<p>​    从点 <em>j</em> 经过边 <em>b</em> 到达一个点 <em>i</em> 后 将 <strong>dis[i]</strong> 和 <strong>dis[j] + b</strong> 的较小值更新到 <strong>dis[i]</strong>  </p>
+<p>​	从点 <em>j</em> 经过边 <em>b</em> 到达一个点 <em>i</em> 后 将 <strong>dis[i]</strong> 和 <strong>dis[j] + b</strong> 的较小值更新到 <strong>dis[i]</strong></p>
 </blockquote>
 <p>遍历结束后 <strong>dis</strong> 便储存了 <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短距离</p>
-<h4 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h4><h3 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h3><ul>
-<li><p>单源 </p>
-<p>  获得从 <strong>一个</strong> <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短路路径</p>
+<h4>demo</h4>
+<h3>Dijkstra</h3>
+<ul>
+<li>
+<p>单源</p>
+<p>获得从 <strong>一个</strong> <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短路路径</p>
 </li>
-<li><p>不能存在负权边</p>
+<li>
+<p>不能存在负权边</p>
 </li>
 </ul>
-<h4 id="算法思想-1"><a href="#算法思想-1" class="headerlink" title="算法思想"></a>算法思想</h4><p>维护一个 <em>距离数组 <strong>dis</strong></em> 用于记录 <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短距离</p>
+<h4>算法思想</h4>
+<p>维护一个 <em>距离数组 <strong>dis</strong></em> 用于记录 <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短距离</p>
 <p>将 <strong>指定点</strong> 作为 <strong>标记点</strong></p>
-<p>从 <strong>标记点</strong> 开始访问其 <strong>邻接点[通过一条边就可到达的点]</strong> </p>
+<p>从 <strong>标记点</strong> 开始访问其 <strong>邻接点[通过一条边就可到达的点]</strong></p>
 <p>访问过程中通过更新 <strong>dis</strong></p>
 <blockquote>
 <p>松弛操作</p>
-<p>从点 <em>j</em> 经过边 <em>b</em> 到达一个点 <em>i</em> 后 将 <strong>dis[i]</strong> 和 <strong>dis[j] + b</strong> 的较小值更新到 <strong>dis[i]</strong>  </p>
+<p>从点 <em>j</em> 经过边 <em>b</em> 到达一个点 <em>i</em> 后 将 <strong>dis[i]</strong> 和 <strong>dis[j] + b</strong> 的较小值更新到 <strong>dis[i]</strong></p>
 </blockquote>
-<p>将当前到达过的点中距离 <strong>指定点</strong> 距离最短的点作为 <strong>标记点</strong> </p>
+<p>将当前到达过的点中距离 <strong>指定点</strong> 距离最短的点作为 <strong>标记点</strong></p>
 <p>循环操作直到所有可到达的点都访问过此时 <strong>dis</strong> 便储存了 <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短距离</p>
-<h4 id="demo-1"><a href="#demo-1" class="headerlink" title="demo"></a>demo</h4><h4 id="Bellmen-ford-、-Dijkstra-比较"><a href="#Bellmen-ford-、-Dijkstra-比较" class="headerlink" title="Bellmen-ford  、 Dijkstra 比较"></a>Bellmen-ford  、 Dijkstra 比较</h4><p>两者的区别主要在于图中能否存在负权边</p>
-<p><strong>Bellmen-Ford</strong> 将所有的可能路径都进行一次比较 </p>
+<h4>demo</h4>
+<h4>Bellmen-ford  、 Dijkstra 比较</h4>
+<p>两者的区别主要在于图中能否存在负权边</p>
+<p><strong>Bellmen-Ford</strong> 将所有的可能路径都进行一次比较</p>
 <p><strong>Dijkstra</strong> 则取巧的从当前距离 <strong>指定点</strong> 最近点开始访问因此效率更高</p>
-<h3 id="Floyd"><a href="#Floyd" class="headerlink" title="Floyd"></a>Floyd</h3><p>​    获得图内任意两点最短距离</p>
-<h4 id="算法思想-2"><a href="#算法思想-2" class="headerlink" title="算法思想"></a>算法思想</h4><p>用一个二维数组 <strong><em>dis</em></strong> 记录图中点之间的距离关系</p>
+<h3>Floyd</h3>
+<p>​	获得图内任意两点最短距离</p>
+<h4>算法思想</h4>
+<p>用一个二维数组 <strong><em>dis</em></strong> 记录图中点之间的距离关系</p>
 <blockquote>
 <p>使得 <strong>dis[i] [j]</strong> 能表示点 <strong>i</strong> 到 点 <strong>j</strong> 的距离</p>
 </blockquote>
-<p>[通过一条边便可到达的点]: </p>
+<p>[通过一条边便可到达的点]:</p>
 
   </article>
   <footer class="f-cf">
