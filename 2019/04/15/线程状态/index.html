@@ -13,7 +13,7 @@
 <meta property="og:description" content="线程是cpu进行调度的最小单位 线程数量大于cpu数量时，线程无法同一时间都被执行，线程状态用于解决那些线程应该被执行的问题 状态New1Thread state for a thread which has not yet started. Runnable123Thread state for a runnable thread.  A thread in the runnable state">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/04/15/线程状态/线程状态.png">
-<meta property="og:updated_time" content="2019-05-06T07:56:26.306Z">
+<meta property="og:updated_time" content="2019-05-06T07:57:48.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程状态">
 <meta name="twitter:description" content="线程是cpu进行调度的最小单位 线程数量大于cpu数量时，线程无法同一时间都被执行，线程状态用于解决那些线程应该被执行的问题 状态New1Thread state for a thread which has not yet started. Runnable123Thread state for a runnable thread.  A thread in the runnable state">
@@ -64,14 +64,14 @@
 <h5 id="Terminated"><a href="#Terminated" class="headerlink" title="Terminated"></a>Terminated</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Thread state for a terminated thread.</span><br><span class="line">The thread has completed execution.</span><br></pre></td></tr></table></figure>
 <p>状态转换</p>
 <p><img src="/2019/04/15/线程状态/线程状态.png" alt="线程状态"></p>
-<ol>
-<li><p>阻塞 </p>
+<ul>
+<li><p>1 阻塞 </p>
 <ul>
 <li><strong>进入</strong> 线程进入同步方法或同步代码块时未获取到锁</li>
 <li><strong>退出</strong> 线程获取到锁</li>
 </ul>
 </li>
-<li><p>等待</p>
+<li><p>2 等待</p>
 <ul>
 <li><strong>进入</strong> 线程执行了以下三种方法其中之一<ul>
 <li>Object.wait()</li>
@@ -92,7 +92,7 @@
 </li>
 </ul>
 </li>
-<li><p>超时等待</p>
+<li><p>3 超时等待</p>
 <ul>
 <li><strong>进入</strong> 线程执行了以下五种方法其中之一<ul>
 <li>Tread.sleep(long)</li>
@@ -105,7 +105,7 @@
 <li><strong>退出</strong> 过了设定的时间后退出</li>
 </ul>
 </li>
-</ol>
+</ul>
 
   </article>
   <footer class="f-cf">
