@@ -3,20 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Strunk cute</title>
+  <title>LockSupport | Strunk cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LockSupport 是线程的阻塞原语，用来阻塞线程和唤醒线程 parkBlocker 是 Thread 中的一个变量用于记录线程是被谁阻塞的 LockSupport 会通过 Unsafe 类的一系列方法 objectFieldOffset 、 putInt 、  getObjectVolatile 来对 parkBlocker 进行修改  LockSupport 封装了 Unsafe 类的两个">
+  <meta name="description" content="是线程的阻塞原语，用来阻塞线程和唤醒线程 parkBlocker 是 Thread 中的一个变量用于记录线程是被谁阻塞的 LockSupport 会通过 Unsafe 类的一系列方法 objectFieldOffset 、 putInt 、  getObjectVolatile 来对 parkBlocker 进行修改  LockSupport 封装了 Unsafe 类的两个操作 park 和 un">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Strunk cute">
-<meta property="og:url" content="http://yoursite.com/2019/04/28/LockSupport/index.html">
+<meta property="og:title" content="LockSupport">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/LockSupport/index.html">
 <meta property="og:site_name" content="Strunk cute">
-<meta property="og:description" content="LockSupport 是线程的阻塞原语，用来阻塞线程和唤醒线程 parkBlocker 是 Thread 中的一个变量用于记录线程是被谁阻塞的 LockSupport 会通过 Unsafe 类的一系列方法 objectFieldOffset 、 putInt 、  getObjectVolatile 来对 parkBlocker 进行修改  LockSupport 封装了 Unsafe 类的两个">
+<meta property="og:description" content="是线程的阻塞原语，用来阻塞线程和唤醒线程 parkBlocker 是 Thread 中的一个变量用于记录线程是被谁阻塞的 LockSupport 会通过 Unsafe 类的一系列方法 objectFieldOffset 、 putInt 、  getObjectVolatile 来对 parkBlocker 进行修改  LockSupport 封装了 Unsafe 类的两个操作 park 和 un">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="d:/笔记/LockSupport实验.png">
-<meta property="og:updated_time" content="2019-04-29T12:23:25.883Z">
+<meta property="og:updated_time" content="2019-05-06T05:33:43.668Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Strunk cute">
-<meta name="twitter:description" content="LockSupport 是线程的阻塞原语，用来阻塞线程和唤醒线程 parkBlocker 是 Thread 中的一个变量用于记录线程是被谁阻塞的 LockSupport 会通过 Unsafe 类的一系列方法 objectFieldOffset 、 putInt 、  getObjectVolatile 来对 parkBlocker 进行修改  LockSupport 封装了 Unsafe 类的两个">
+<meta name="twitter:title" content="LockSupport">
+<meta name="twitter:description" content="是线程的阻塞原语，用来阻塞线程和唤醒线程 parkBlocker 是 Thread 中的一个变量用于记录线程是被谁阻塞的 LockSupport 会通过 Unsafe 类的一系列方法 objectFieldOffset 、 putInt 、  getObjectVolatile 来对 parkBlocker 进行修改  LockSupport 封装了 Unsafe 类的两个操作 park 和 un">
 <meta name="twitter:image" content="d:/笔记/LockSupport实验.png">
   
   <link rel="stylesheet" href="/css/index.css">
@@ -51,11 +51,10 @@
   </div>
 </nav>
     <div id="main"><section class="article">
-  <h2 class="title"></h2>
-  <p class="sub">Apr 28, 2019</p>
+  <h2 class="title">LockSupport</h2>
+  <p class="sub">Mar 27, 2019</p>
   <article class="content">
-    <p>LockSupport</p>
-<p>是线程的阻塞原语，用来阻塞线程和唤醒线程</p>
+    <p>是线程的阻塞原语，用来阻塞线程和唤醒线程</p>
 <p><code>parkBlocker</code> 是 <code>Thread</code> 中的一个变量用于记录线程是被谁阻塞的</p>
 <p><code>LockSupport</code> 会通过 <code>Unsafe</code> 类的一系列方法 <code>objectFieldOffset</code> 、 <code>putInt</code> 、  <code>getObjectVolatile</code> 来对 <code>parkBlocker</code> 进行修改</p>
 <p> <code>LockSupport</code> 封装了 <code>Unsafe</code> 类的两个操作 <code>park</code> 和 <code>unpark</code> 用于处理代码同步</p>
@@ -71,10 +70,10 @@
   </article>
   <footer class="f-cf">
     
-      <a href="/2019/04/29/join/" class="link f-fl">⟵</a>
+      <a href="/2019/03/27/Intent-filter 匹配规则/" class="link f-fl">⟵Intent-filter 匹配规则</a>
     
     
-      <a href="/2019/04/27/线程状态/" class="link f-fr">⟶</a>
+      <a href="/2019/03/27/android 序列化/" class="link f-fr">android 序列化⟶</a>
     
   </footer>
 </section></div>
