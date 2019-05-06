@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Strunk cute">
 <meta property="og:description" content="Bellmen-ford 单源    获得从 一个 指定点 到 其余各点 的最短路路径   算法思想维护一个 距离数组 dis 用于记录 指定点 到 其余各点 的最短距离 用广度遍历的方式从 指定点 开始依次访问 其余各点 到达一个点之后将 距离数组 的数值更新  松弛操作 ​    从点 j 经过边 b 到达一个点 i 后 将 dis[i] 和 dis[j] + b 的较小值更新到 dis[i]">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-06T06:57:59.987Z">
+<meta property="og:updated_time" content="2019-05-06T08:30:26.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最短路径">
 <meta name="twitter:description" content="Bellmen-ford 单源    获得从 一个 指定点 到 其余各点 的最短路路径   算法思想维护一个 距离数组 dis 用于记录 指定点 到 其余各点 的最短距离 用广度遍历的方式从 指定点 开始依次访问 其余各点 到达一个点之后将 距离数组 的数值更新  松弛操作 ​    从点 j 经过边 b 到达一个点 i 后 将 dis[i] 和 dis[j] + b 的较小值更新到 dis[i]">
@@ -64,7 +64,8 @@
 <p>​    从点 <em>j</em> 经过边 <em>b</em> 到达一个点 <em>i</em> 后 将 <strong>dis[i]</strong> 和 <strong>dis[j] + b</strong> 的较小值更新到 <strong>dis[i]</strong>  </p>
 </blockquote>
 <p>遍历结束后 <strong>dis</strong> 便储存了 <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短距离</p>
-<h4 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h4><h3 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h3><ul>
+<p><a href="https://github.com/kamiGap/ShortestPath/blob/master/src/BellmenFord.java" target="_blank" rel="noopener"><strong>Demo</strong></a></p>
+<h3 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h3><ul>
 <li><p>单源 </p>
 <p>  获得从 <strong>一个</strong> <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短路路径</p>
 </li>
@@ -81,7 +82,8 @@
 </blockquote>
 <p>将当前到达过的点中距离 <strong>指定点</strong> 距离最短的点作为 <strong>标记点</strong> </p>
 <p>循环操作直到所有可到达的点都访问过此时 <strong>dis</strong> 便储存了 <strong>指定点</strong> 到 <strong>其余各点</strong> 的最短距离</p>
-<h4 id="demo-1"><a href="#demo-1" class="headerlink" title="demo"></a>demo</h4><h4 id="Bellmen-ford-、-Dijkstra-比较"><a href="#Bellmen-ford-、-Dijkstra-比较" class="headerlink" title="Bellmen-ford  、 Dijkstra 比较"></a>Bellmen-ford  、 Dijkstra 比较</h4><p>两者的区别主要在于图中能否存在负权边</p>
+<p><a href="https://github.com/kamiGap/ShortestPath/blob/master/src/Dijkstra.java" target="_blank" rel="noopener">Demo</a></p>
+<h4 id="Bellmen-ford-、-Dijkstra-比较"><a href="#Bellmen-ford-、-Dijkstra-比较" class="headerlink" title="Bellmen-ford  、 Dijkstra 比较"></a>Bellmen-ford  、 Dijkstra 比较</h4><p>两者的区别主要在于图中能否存在负权边</p>
 <p><strong>Bellmen-Ford</strong> 将所有的可能路径都进行一次比较 </p>
 <p><strong>Dijkstra</strong> 则取巧的从当前距离 <strong>指定点</strong> 最近点开始访问因此效率更高</p>
 <h3 id="Floyd"><a href="#Floyd" class="headerlink" title="Floyd"></a>Floyd</h3><p>​    获得图内任意两点最短距离</p>
