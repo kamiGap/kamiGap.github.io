@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>java 虚方法 | Strunk cute</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="提要类加载的准备阶段，java虚拟机会构造与类相关联的 方法表 方法表  本质上是一个数组，每个数组元素指向 当前类及其祖先类 中 非私有 的实例方法 满足两个特质  子类方法表包含父类方法表中的所有方法 子类方法在方法表中的索引值，与它所重写的父类方法的索引值相同  调用​    对于动态绑定的方法（即虚方法）调用而言，实际引用的是方法表的索引值，java 虚拟机会先获取调用者的实际类型，根据索">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java 虚方法">
+<meta property="og:url" content="http://yoursite.com/2019/05/17/java 虚方法/index.html">
+<meta property="og:site_name" content="Strunk cute">
+<meta property="og:description" content="提要类加载的准备阶段，java虚拟机会构造与类相关联的 方法表 方法表  本质上是一个数组，每个数组元素指向 当前类及其祖先类 中 非私有 的实例方法 满足两个特质  子类方法表包含父类方法表中的所有方法 子类方法在方法表中的索引值，与它所重写的父类方法的索引值相同  调用​    对于动态绑定的方法（即虚方法）调用而言，实际引用的是方法表的索引值，java 虚拟机会先获取调用者的实际类型，根据索">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-17T09:32:25.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java 虚方法">
+<meta name="twitter:description" content="提要类加载的准备阶段，java虚拟机会构造与类相关联的 方法表 方法表  本质上是一个数组，每个数组元素指向 当前类及其祖先类 中 非私有 的实例方法 满足两个特质  子类方法表包含父类方法表中的所有方法 子类方法在方法表中的索引值，与它所重写的父类方法的索引值相同  调用​    对于动态绑定的方法（即虚方法）调用而言，实际引用的是方法表的索引值，java 虚拟机会先获取调用者的实际类型，根据索">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">Strunk Cote</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://github.com/kamiGap" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/categories" class="nav-menu ">CATEGORY</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">java 虚方法</h2>
+  <p class="sub">May 17, 2019</p>
+  <article class="content">
+    <h3 id="提要"><a href="#提要" class="headerlink" title="提要"></a>提要</h3><p>类加载的准备阶段，java虚拟机会构造与类相关联的 <strong>方法表</strong></p>
+<p><strong>方法表</strong> </p>
+<p>本质上是一个数组，每个数组元素指向 <strong>当前类及其祖先类</strong> 中 <strong>非私有</strong> 的实例方法</p>
+<p>满足两个特质</p>
+<ul>
+<li>子类方法表包含父类方法表中的所有方法</li>
+<li>子类方法在方法表中的索引值，与它所重写的父类方法的索引值相同</li>
+</ul>
+<h3 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h3><p>​    对于动态绑定的方法（即虚方法）调用而言，实际引用的是方法表的索引值，java 虚拟机会先获取调用者的实际类型，根据索引值获得目标方法</p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>​    在即时编译的情况下存在的优化手段</p>
+<p>Inlining cache</p>
+<p>​    缓存调用类型所对应的目标方法，下次调用的时候优先判断是否为缓存的类型，如是直接返回缓存的目标方法，否则退化到正常调用</p>
+
+  </article>
+  <footer class="f-cf">
+    
+    
+      <a href="/2019/05/17/垃圾回收方式/" class="link f-fr">垃圾回收方式⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  kami.s.gap@gmail.com
+  
+    
+      
+        · <a href="https://github.com/kamiGap" target="_blank" class="nav-icn">github</a>
+      
+    
+  
+  <span class="copyright">All rights reserved @kami</span>
+</footer>
+  </div>
+</body>
+</html>

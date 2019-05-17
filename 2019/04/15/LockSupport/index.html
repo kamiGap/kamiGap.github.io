@@ -6,6 +6,7 @@
   <title>LockSupport | Strunk cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="是线程的阻塞原语，用来阻塞线程和唤醒线程 parkBlocker 是 Thread 中的一个变量用于记录线程是被谁阻塞的 LockSupport 会通过 Unsafe 类的一系列方法 objectFieldOffset 、 putInt 、  getObjectVolatile 来对 parkBlocker 进行修改  LockSupport 封装了 Unsafe 类的两个操作 park 和 un">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LockSupport">
 <meta property="og:url" content="http://yoursite.com/2019/04/15/LockSupport/index.html">
@@ -13,7 +14,7 @@
 <meta property="og:description" content="是线程的阻塞原语，用来阻塞线程和唤醒线程 parkBlocker 是 Thread 中的一个变量用于记录线程是被谁阻塞的 LockSupport 会通过 Unsafe 类的一系列方法 objectFieldOffset 、 putInt 、  getObjectVolatile 来对 parkBlocker 进行修改  LockSupport 封装了 Unsafe 类的两个操作 park 和 un">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/04/15/LockSupport/LockSupport实验.png">
-<meta property="og:updated_time" content="2019-05-06T08:06:01.518Z">
+<meta property="og:updated_time" content="2019-05-17T09:34:21.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LockSupport">
 <meta name="twitter:description" content="是线程的阻塞原语，用来阻塞线程和唤醒线程 parkBlocker 是 Thread 中的一个变量用于记录线程是被谁阻塞的 LockSupport 会通过 Unsafe 类的一系列方法 objectFieldOffset 、 putInt 、  getObjectVolatile 来对 parkBlocker 进行修改  LockSupport 封装了 Unsafe 类的两个操作 park 和 un">
@@ -76,6 +77,8 @@
 
   </article>
   <footer class="f-cf">
+    
+      <a href="/2019/05/17/垃圾回收方式/" class="link f-fl">⟵垃圾回收方式</a>
     
     
       <a href="/2019/04/15/线程状态/" class="link f-fr">线程状态⟶</a>
