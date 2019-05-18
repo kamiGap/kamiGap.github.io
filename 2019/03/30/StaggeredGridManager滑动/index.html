@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>StaggeredGridManager滑动 | Strunk cute</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="问题描述使用RecyclerView并且设置LayoutManager为StaggeredGridManager上下滑动RecyclerView时遇到了如下问题  滑动回顶部时顶部存在间隙如图1，并且这个间隙在往下滑动之前是不存在的   滑动时item之间可能会出现伴随动画的交换 找寻解决方案比较普遍的解决方案有以下几种  1manager.setGapStrategy(StaggeredGrid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="StaggeredGridManager滑动">
+<meta property="og:url" content="http://yoursite.com/2019/03/30/StaggeredGridManager滑动/index.html">
+<meta property="og:site_name" content="Strunk cute">
+<meta property="og:description" content="问题描述使用RecyclerView并且设置LayoutManager为StaggeredGridManager上下滑动RecyclerView时遇到了如下问题  滑动回顶部时顶部存在间隙如图1，并且这个间隙在往下滑动之前是不存在的   滑动时item之间可能会出现伴随动画的交换 找寻解决方案比较普遍的解决方案有以下几种  1manager.setGapStrategy(StaggeredGrid">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/StaggeredGridManager滑动/staggered%20空缺.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/StaggeredGridManager滑动/staggered%20填充.png">
+<meta property="og:updated_time" content="2019-05-18T04:25:28.451Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="StaggeredGridManager滑动">
+<meta name="twitter:description" content="问题描述使用RecyclerView并且设置LayoutManager为StaggeredGridManager上下滑动RecyclerView时遇到了如下问题  滑动回顶部时顶部存在间隙如图1，并且这个间隙在往下滑动之前是不存在的   滑动时item之间可能会出现伴随动画的交换 找寻解决方案比较普遍的解决方案有以下几种  1manager.setGapStrategy(StaggeredGrid">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/30/StaggeredGridManager滑动/staggered%20空缺.png">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">Strunk Cote</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://github.com/kamiGap" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/categories" class="nav-menu ">CATEGORY</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">StaggeredGridManager滑动</h2>
+  <p class="sub">Mar 30, 2019</p>
+  <article class="content">
+    <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>使用<code>RecyclerView</code>并且设置<code>LayoutManager</code>为<code>StaggeredGridManager</code>上下滑动<code>RecyclerView</code>时遇到了如下问题</p>
+<ul>
+<li><p>滑动回顶部时顶部存在<strong>间隙</strong>如图1，并且这个<strong>间隙</strong>在往下滑动之前是不存在的</p>
+<p><img src="/2019/03/30/StaggeredGridManager滑动/staggered 空缺.png" alt="staggered 空缺"></p>
+</li>
+<li><p>滑动时item之间可能会出现伴随动画的交换</p>
+<h3 id="找寻解决方案"><a href="#找寻解决方案" class="headerlink" title="找寻解决方案"></a>找寻解决方案</h3><p>比较普遍的解决方案有以下几种</p>
+</li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">manager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在滑动过程中调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">staggeredGridLayoutManager.invalidateSpanAssignments();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绑定<code>viewholder</code>时预先设置好view的高度</p>
+</li>
+</ul>
+<h3 id="解决方案分析"><a href="#解决方案分析" class="headerlink" title="解决方案分析"></a>解决方案分析</h3><p>第一种解决方案 设置 <code>StaggeredGridManager</code> 的 <code>GapStrategy</code>,  <code>GapStrategy</code>有两个可以使用的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * Does not do anything to hide gaps.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> GAP_HANDLING_NONE = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * When scroll state is changed to SCROLL_STATE_IDLE, StaggeredGrid will</span></span><br><span class="line"><span class="comment"> * check if there are gaps in the because of full span items. If it finds, it will re-layout</span></span><br><span class="line"><span class="comment"> * and move items to correct positions with animations.</span></span><br><span class="line"><span class="comment"> * For example, if LayoutManager ends up with the following layout due to adapter changes:</span></span><br><span class="line"><span class="comment"> * AAA</span></span><br><span class="line"><span class="comment"> * _BC</span></span><br><span class="line"><span class="comment"> * DDD</span></span><br><span class="line"><span class="comment"> * It will animate to the following state:</span></span><br><span class="line"><span class="comment"> * AAA</span></span><br><span class="line"><span class="comment"> * BC_</span></span><br><span class="line"><span class="comment"> * DDD</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>默认设置为 <code>GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS</code> </p>
+<p>默认情况下<code>RecyclerView</code> 在滑动完成后就会检查 <code>gap</code> 如果存在<code>gap</code> 就会重新绘制一次布局</p>
+<p>设置成<code>GAP_HANDLING_NONE</code> 会将一个成员变量<code>RecyclerView#mAutoMeasure</code>设为<code>false</code>，在<code>RecyclerView#onMeasure</code>方法中这个变量为<code>false</code> measure 的计算会由<code>RecyclerView</code>完成</p>
+<p>同时 还会影响 <code>StaggeredGridLayoutManager#checkForGap</code>这个方法在设置了<code>GAP_HANDLING_NONE</code> 之后会直接返回<code>false</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Checks for gaps in the UI that may be caused by adapter changes.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * When a full span item is laid out in reverse direction, it sets a flag which we check when</span></span><br><span class="line"><span class="comment"> * scroll is stopped (or re-layout happens) and re-layout after first valid item.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">checkForGaps</span><span class="params">()</span> </span>&#123;</span><br></pre></td></tr></table></figure>
+<p>滑动停止后它会被调用来检查每一个<code>child</code>判断他们是不是符合布局的条件，如果不符合则会通过动画的方式将它放置在正确的位置。假设它不执行那么错误位置的item就不会被修复到正确的位置。</p>
+<p>第二种解决方案 滑动结束后调用<code>staggeredGridLayoutManager#invalidateSpanAssignments</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * For consistency, StaggeredGridLayoutManager keeps a mapping between spans and items.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * If you need to cancel current assignments, you can call this method which will clear  all</span></span><br><span class="line"><span class="comment"> * assignments and request a new layout.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">invalidateSpanAssignments</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mLazySpanLookup.clear();</span><br><span class="line">    requestLayout();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法会调用一个成员变量<code>mLazySpanLookup</code>的<code>clear</code>方法，然后请求重新绘制</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Keeps the mapping between the adapter positions and spans. This is necessary to provide</span></span><br><span class="line"><span class="comment"> * a consistent experience when user scrolls the list.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">LazySpanLookup mLazySpanLookup = <span class="keyword">new</span> LazySpanLookup();</span><br></pre></td></tr></table></figure>
+<p>这个成员变量主要在<code>fill</code>方法中使用，它记录了上一页最末尾处的 child 的信息 有了这些信息才能填充这一页 的 child，保证整个瀑布流看起来是连贯的。<br><img src="/2019/03/30/StaggeredGridManager滑动/staggered 填充.png" alt="staggered 填充"><br>可以理解为这个变量记录了图中两个 child 结束的位置 新的 child 要在这个基础上进行放置<br>如果清除了这个数据那么每次<code>fill</code>都和前面绘制的失去联系。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>第一种方法 和 第二种方法 都能避免出现问题，但是他们都带来了另外的问题</p>
+<p>在绘制的时候 child 都被放到了正确的位置，只绘制完成以后 child 的高度宽度被改变了，才会导致其他的 child 的位置变为错误的位置，因为瀑布流本身就是依据 child 的高度来排布它应该接在第几栏，所以要解决这个问题应该保持 child 的高宽信息不变，这样就不会触发LayoutManager的修复手段，出现一些我们不需要的效果。</p>
+<p>由于瀑布流高宽大多由图片决定，而图片从网络上下载下来之后可能会撑大原有的布局改变了高宽信息，因此要解决这个问题，应该使用第三种方法，保证 child 的高宽不会改变，就能真正的避免上述问题。</p>
+
+  </article>
+  <footer class="f-cf">
+    
+      <a href="/2019/03/30/布隆过滤器/" class="link f-fl">⟵布隆过滤器</a>
+    
+    
+      <a href="/2019/03/29/Intent-filter 匹配规则/" class="link f-fr">Intent-filter 匹配规则⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  kami.s.gap@gmail.com
+  
+    
+      
+        · <a href="https://github.com/kamiGap" target="_blank" class="nav-icn">github</a>
+      
+    
+  
+  <span class="copyright">All rights reserved @kami</span>
+</footer>
+  </div>
+</body>
+</html>
